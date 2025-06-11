@@ -895,7 +895,7 @@
             
             setTimeout(() => {
                 nextStory();
-            }, 5000);
+            }, 10000);
         }
         
         function resetStoryProgress() {

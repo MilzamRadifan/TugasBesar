@@ -262,7 +262,7 @@
         <div class="edit-profile-card">
             <h1 class="edit-title">Edit Profil</h1>
             
-            <form action="UpdateProfileServlet" method="post" enctype="multipart/form-data">
+            <form action="UpdateProfileServlet" method="post">
                 <div class="avatar-upload">
                     <img src="${pageContext.request.contextPath}/images/profil.jpeg" alt="Avatar" class="avatar-preview" id="avatarPreview">
                     <div>
@@ -270,26 +270,25 @@
                         <input type="file" id="avatarInput" name="avatar" accept="image/*" style="display: none;" onchange="previewAvatar(event)">
                     </div>
                 </div>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="firstName">Nama Depan</label>
-                        <input type="text" id="firstName" name="firstName" class="form-control" value="Diva" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="lastName">Nama Belakang</label>
-                        <input type="text" id="lastName" name="lastName" class="form-control" value="Octaviani" required>
-                    </div>
+
+                <div class="form-group">
+                    <label for="fullname">Nama Lengkap</label>
+                    <input type="text" id="fullname" name="fullname" placeholder="Nama Lengkap" class="form-control" required>
                 </div>
-                
+
                 <div class="form-group">
                     <label for="username">Username</label>
-                    <input type="text" id="username" name="username" class="form-control" value="divaocta" required>
+                    <input type="text" id="username" name="username" placeholder="Username" class="form-control" required>
                 </div>
                 
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="email" class="form-control" value="diva@example.com" required>
+                    <input type="email" id="email" name="email" placeholder="Email" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Nomor Telepon</label>
+                    <input type="tel" id="phone" name="phone" placeholder="081234567890" required>
                 </div>
                 
                 <div class="form-group">

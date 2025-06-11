@@ -236,7 +236,7 @@
             <div class="dropdown-menu" id="dropdownMenu">
                 <a href="Profil.jsp"><i class="fas fa-user"></i> Profil Saya</a>
                 <a href="EditProfil.jsp"><i class="fas fa-edit"></i> Edit Profil</a>
-                <a href="LogoutServlet"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                <a href="#" id="logoutLink"><i  class="fas fa-sign-out-alt"></i> Logout</a>
             </div>
         </div>
     </nav>
@@ -281,6 +281,27 @@
             </div>
         </section>
     </div>
+
+    <!-- Logout Confirmation Modal -->
+    <div class="logout-modal" id="logoutModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 1001; justify-content: center; align-items: center;">
+        <div class="logout-container" style="background-color: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); width: 100%; max-width: 450px; padding: 40px; text-align: center; animation: fadeIn 0.5s ease;">
+            <div class="logo" style="color: #00bfff; font-size: 28px; font-weight: bold; margin-bottom: 20px;">HeiLo</div>
+            <div class="logout-icon" style="font-size: 60px; color: #00bfff; margin-bottom: 25px;">
+                <i class="fas fa-sign-out-alt"></i>
+            </div>
+            <h2 style="color: #333; margin-bottom: 15px; font-weight: 600;">Keluar dari HeiLo?</h2>
+            <p style="color: #666; margin-bottom: 30px; line-height: 1.6;">Anda yakin ingin keluar dari akun Anda? Anda perlu masuk kembali untuk menggunakan HeiLo.</p>
+
+            <div class="btn-group" style="display: flex; justify-content: center; gap: 15px; margin-top: 30px;">
+                <button onclick="confirmLogout()" class="btn btn-primary" style="padding: 12px 25px; border-radius: 30px; font-weight: 500; cursor: pointer; transition: all 0.3s ease; border: none; font-size: 16px; display: inline-flex; align-items: center; justify-content: center; background-color: #00bfff; color: white;">
+                    <i class="fas fa-sign-out-alt"></i> Ya, Keluar
+                </button>
+                <button onclick="cancelLogout()" class="btn btn-outline" style="padding: 12px 25px; border-radius: 30px; font-weight: 500; cursor: pointer; transition: all 0.3s ease; border: 1px solid #ddd; font-size: 16px; display: inline-flex; align-items: center; justify-content: center; background-color: transparent; color: #666;">
+                    <i class="fas fa-times"></i> Batal
+                </button>
+            </div>
+        </div>
+    </div>
     
     <script>
         // Toggle dropdown menu
@@ -292,6 +313,27 @@
         // Close dropdown when clicking outside
         window.addEventListener('click', function() {
             document.getElementById('dropdownMenu').classList.remove('show-dropdown');
+        });
+
+        // Logout confirmation
+        document.getElementById('logoutLink').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('logoutModal').style.display = 'flex';
+        });
+
+        function confirmLogout() {
+            window.location.href = 'RegisterPage.jsp';
+        }
+
+        function cancelLogout() {
+            document.getElementById('logoutModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('logoutModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                cancelLogout();
+            }
         });
     </script>
 </body>
