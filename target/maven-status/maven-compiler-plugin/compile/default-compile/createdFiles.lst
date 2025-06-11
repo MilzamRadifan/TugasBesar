@@ -1,0 +1,8 @@
+servlet\BerandaServlet.class
+servlet\DatabaseConnection.class
+servlet\PesanServlet.class
+servlet\RegisterServlet.class
+model\Message.class
+model\User.class
+servlet\KomentarServlet.class
+servlet\LoginServlet.class
